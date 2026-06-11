@@ -4,5 +4,4 @@ public class Name {
 		// Test class to print my name
 		System.out.println("My name is Vimal!");
 	}
-
 }
