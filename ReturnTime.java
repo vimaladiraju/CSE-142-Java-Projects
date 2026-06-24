@@ -7,10 +7,12 @@ public class ReturnTime {
 		int day = (int) days + 1;
 		
 		// Here's how to tell the program the exact date, e.g day 170 of 2026
-		while (day > 365) {
-			if (year % 4 == 0) {
-				day -= 366;
-				year++;
+		while (day > 366 || (day == 366 && !isLeap(year))) {
+			if (isLeap(year)) {
+				if (day > 366) {
+					day -= 366;
+					year++;
+				}
 			} else {
 				year++;
 				day -= 365;
@@ -21,6 +23,10 @@ public class ReturnTime {
 		System.out.println("days = " + days);
 		System.out.println("year = " + year);
 		System.out.println("day = " + day);
+	}
+	
+	public static boolean isLeap(int year) {
+		return year % 4 == 0;
 	}
 	
 	public static double toDays(double millis) {
